@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0"
+		/>
+		<title>
+			Visualizaciones - Análisis del costo de la energía
+			en México
+		</title>
+		<!-- Fonts -->
+		<link
+			rel="preconnect"
+			href="https://fonts.googleapis.com"
+		/>
+		<link
+			rel="preconnect"
+			href="https://fonts.gstatic.com"
+			crossorigin
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@700;800&family=Geist:wght@300;400;700&family=Geist+Mono:wght@400&family=Instrument+Sans:wght@700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="visualizations.css" />
+	</head>
+	<body>
+		<div class="desktop">
+			<!-- Navigation -->
+			<nav class="nav">
+				<div class="nav-contents">
+					<div class="logo">
+						<img
+							src="/img/logo-cic.png"
+							alt="Logo CIC"
+						/>
+						<p>Costo de la energía en México</p>
+					</div>
+					<div class="nav-links">
+						<a href="/index.html" class="dropdown-toggle"
+							>Inicio</a
+						>
+						<div class="nav-dropdown">
+							<a
+								href="/visualizaciones.html"
+								class="dropdown-toggle"
+								>Visualizaciones</a
+							>
+							<div class="dropdown-menu">
+								<a href="/visualizaciones2025.html"
+									>2025</a
+								>
+								<a href="/visualizaciones2024.html"
+									>2024</a
+								>
+								<a href="/visualizaciones2023.html"
+									>2023</a
+								>
+								<a href="/visualizaciones2022.html"
+									>2022</a
+								>
+								<a href="/visualizaciones2021.html"
+									>2021</a
+								>
+								<a href="/visualizaciones2020.html"
+									>2020</a
+								>
+							</div>
+						</div>
+						<a
+							href="/manual.html"
+							class="dropdown-toggle"
+							>Manual</a
+						>
+						<a href="/contacto.html">
+							<button class="nav-button">
+								Contacto
+							</button>
+						</a>
+					</div>
+				</div>
+			</nav>
+
+			<!-- Main Content -->
+			<main class="main">
+				<!-- Title Section -->
+				<header class="title-section">
+					<h1>EN PROCESO 2021</h1>
+				</header>
+			</main>
+
+			<!-- Scroll to Top Button -->
+			<button
+				id="scrollToTopBtn"
+				class="scroll-to-top"
+				title="Ir hacia arriba"
+			>
+				▲
+			</button>
+		</div>
+	</body>
+	<script>
+		const scrollToTopBtn = document.getElementById(
+			'scrollToTopBtn'
+		);
+
+		window.addEventListener('scroll', () => {
+			if (window.pageYOffset > 300) {
+				scrollToTopBtn.classList.add('show');
+			} else {
+				scrollToTopBtn.classList.remove('show');
+			}
+		});
+
+		function smoothScrollToTop() {
+			const startPosition = window.pageYOffset;
+			const distance = startPosition;
+			const duration = 2000;
+			let start = null;
+
+			window.requestAnimationFrame(
+				function step(timestamp) {
+					if (!start) start = timestamp;
+					const progress = timestamp - start;
+					const percentage = Math.min(
+						progress / duration,
+						1
+					);
+
+					const ease = 1 - Math.pow(1 - percentage, 3);
+					window.scrollTo(
+						0,
+						startPosition - distance * ease
+					);
+
+					if (progress < duration) {
+						window.requestAnimationFrame(step);
+					}
+				}
+			);
+		}
+
+		scrollToTopBtn.addEventListener('click', () => {
+			smoothScrollToTop();
+		});
+	</script>
+</html>
