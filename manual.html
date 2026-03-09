@@ -48,6 +48,11 @@
 								>Visualizaciones</a
 							>
 							<div class="dropdown-menu">
+								<a
+									href="/visualizaciones_temporales.html"
+									>2020-2025 Costo de la energía y sus
+									componentes</a
+								>
 								<a href="/visualizaciones2025.html"
 									>2025</a
 								>
@@ -110,7 +115,12 @@
 						</p>
 					</div>
 					<div class="options-list">
-						<div class="option">
+						<div
+							class="option"
+							role="button"
+							tabindex="0"
+							aria-expanded="false"
+						>
 							<div class="option-icon">
 								<img
 									src="/img/flecha_icon.png"
@@ -121,7 +131,16 @@
 								Estructura de la Página Web
 							</p>
 						</div>
-						<div class="option">
+						<div class="option-content">
+							<img src="/img/Estructura_WEB.svg" />
+							<br /><br />
+						</div>
+						<div
+							class="option"
+							role="button"
+							tabindex="0"
+							aria-expanded="false"
+						>
 							<div class="option-icon">
 								<img
 									src="/img/flecha_icon.png"
@@ -133,16 +152,63 @@
 								y MDA
 							</p>
 						</div>
-						<div class="option">
+						<div class="option-content">
+							<p>
+								Agrega aquí la información adicional de
+								esta sección.
+							</p>
+						</div>
+						<div
+							class="option"
+							role="button"
+							tabindex="0"
+							aria-expanded="false"
+						>
 							<div class="option-icon">
 								<img
 									src="/img/flecha_icon.png"
 									alt="Left arrow"
 								/>
 							</div>
-							<p class="option-title">Pendiente</p>
+							<p class="option-title">
+								Comparación de Costos MDA y MTR por hora
+							</p>
 						</div>
-						<div class="option">
+						<div class="option-content">
+							<p>
+								Agrega aquí la información adicional de
+								esta sección.
+							</p>
+						</div>
+						<div
+							class="option"
+							role="button"
+							tabindex="0"
+							aria-expanded="false"
+						>
+							<div class="option-icon">
+								<img
+									src="/img/flecha_icon.png"
+									alt="Left arrow"
+								/>
+							</div>
+							<p class="option-title">
+								Análisis temporal del costo de la energía
+								y sus componentes
+							</p>
+						</div>
+						<div class="option-content">
+							<p>
+								Agrega aquí la información adicional de
+								esta sección.
+							</p>
+						</div>
+						<div
+							class="option"
+							role="button"
+							tabindex="0"
+							aria-expanded="false"
+						>
 							<div class="option-icon">
 								<img
 									src="/img/flecha_icon.png"
@@ -153,7 +219,18 @@
 								Compartir visualizaciones
 							</p>
 						</div>
-						<div class="option">
+						<div class="option-content">
+							<p>
+								Agrega aquí la información adicional de
+								esta sección.
+							</p>
+						</div>
+						<div
+							class="option"
+							role="button"
+							tabindex="0"
+							aria-expanded="false"
+						>
 							<div class="option-icon">
 								<img
 									src="/img/flecha_icon.png"
@@ -161,6 +238,12 @@
 								/>
 							</div>
 							<p class="option-title">Descargar datos</p>
+						</div>
+						<div class="option-content">
+							<p>
+								Agrega aquí la información adicional de
+								esta sección.
+							</p>
 						</div>
 					</div>
 				</section>
@@ -271,6 +354,60 @@
 
 		scrollToTopBtn.addEventListener('click', () => {
 			smoothScrollToTop();
+		});
+
+		document
+			.querySelectorAll('.option')
+			.forEach((option) => {
+				const content = option.nextElementSibling;
+
+				if (
+					!content ||
+					!content.classList.contains('option-content')
+				) {
+					return;
+				}
+
+				content.style.maxHeight = '0px';
+
+				const toggleContent = () => {
+					const isOpen =
+						option.classList.toggle('active');
+					content.classList.toggle('show', isOpen);
+					content.style.maxHeight = isOpen
+						? `${content.scrollHeight}px`
+						: '0px';
+					option.setAttribute(
+						'aria-expanded',
+						String(isOpen)
+					);
+				};
+
+				option.addEventListener('click', toggleContent);
+				option.addEventListener('keydown', (event) => {
+					if (
+						event.key === 'Enter' ||
+						event.key === ' '
+					) {
+						event.preventDefault();
+						toggleContent();
+					}
+				});
+			});
+
+		window.addEventListener('resize', () => {
+			document
+				.querySelectorAll('.option.active')
+				.forEach((option) => {
+					const content = option.nextElementSibling;
+
+					if (
+						content &&
+						content.classList.contains('option-content')
+					) {
+						content.style.maxHeight = `${content.scrollHeight}px`;
+					}
+				});
 		});
 	</script>
 </html>
