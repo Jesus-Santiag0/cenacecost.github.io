@@ -11,9 +11,15 @@ body {
 }
 
 body {
-	font-family: 'Geist', 'Anek Tamil', sans-serif;
+	font-family: 'Geist', sans-serif;
 	background-color: #ffffff;
-	color: #1a1a1a;
+	font-size: 19px;
+	font-weight: 400;
+	line-height: 1.51;
+	letter-spacing: -0.57px;
+	color: #000;
+	text-align: justify;
+	margin: 0;
 }
 
 :root {
@@ -359,6 +365,17 @@ body {
 	max-width: 100%;
 	height: auto;
 	display: block;
+	margin: 0 auto;
+}
+
+.option-content ol {
+	padding-left: 24px;
+}
+
+.option-content .manual-sublist {
+	padding-left: 24px;
+	margin-top: 6px;
+	list-style-type: disc;
 }
 
 /* Footer */

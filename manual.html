@@ -133,7 +133,44 @@
 						</div>
 						<div class="option-content">
 							<img src="/img/Estructura_WEB.svg" />
-							<br /><br />
+							<br />
+							<ol>
+								<li>
+									<b>Inicio:</b> Esta es la página
+									principal en donde incluye:
+									<ul class="manual-sublist">
+										<li>Resumen del proyecto</li>
+										<li>Introducción del proyecto</li>
+										<li>Herramientas utilizadas</li>
+										<li>Autores del proyecto</li>
+									</ul>
+								</li>
+								<li>
+									<b>Visualizaciones:</b> En esta página
+									se encuentran las visualizaciones
+									públicas del proyecto, está sección se
+									divide en una página por año (divididas
+									en pestañas) de los datos que se han
+									trabajado, también hay una página de
+									análisis temporal en donde se muestran
+									gráficas temporales con todos los años
+									previamente tratados.
+								</li>
+								<li>
+									<b>Manual:</b> Es la página actual en
+									la que te encuentras, aquí encontrarás
+									información sobre la estructura del
+									proyecto, navegación entre la página
+									web y las visualizaciones públicas, así
+									como sus funcionalidades mediante
+									Tableau.
+								</li>
+								<li>
+									<b>Contacto:</b> En la página contacto
+									encontrarás información sobre los
+									autores de este proyecto.
+								</li>
+							</ol>
 						</div>
 						<div
 							class="option"
@@ -153,10 +190,55 @@
 							</p>
 						</div>
 						<div class="option-content">
-							<p>
-								Agrega aquí la información adicional de
-								esta sección.
-							</p>
+							<ul>
+								<li>
+									<b>Objetivo:</b> Comparar los precios
+									de la energía del MTR y MDA por mes en
+									cada estado de la República Mexicana.
+								</li>
+								<li>
+									<b>Contexto de los datos:</b> Los datos
+									para estas visualizaciones fueron
+									obtenidos a través del CENACE (Centro
+									Nacional de Control de Energía)
+									publicados como el MDA (Mercado del Día
+									de Adelanto) y MTR (Mercado del Tiempo
+									Real), en estos se incluyen los tres
+									Sistemas Interconectados existentes en
+									México (SIN, BCA y BCS).
+								</li>
+								<li>
+									<b>Descripción de la visualización:</b>
+									Este dashboard cuenta con dos gráficos
+									de mapa representando la geometría de
+									México, en el lado izquierdo está el
+									mapa que representa por estado los
+									precios de la energía del MTR y del
+									lado derecho el mapa que representa los
+									precios de energía del MDA. El precio
+									dado es por MW/h, este es representado
+									por colores, entre más rojizo sea
+									indica un precio más caro en ese
+									estado.
+								</li>
+								<img src="/img/visu/MTR&MDA_E_1.png" />
+								<li>
+									<b>Instrucciones de uso:</b> En la
+									parte derecha del dashboard se
+									encuentran dos filtros que modifican el
+									periodo de observación dado por Mes y
+									Año; el filtro superior modifica el
+									mapa MTR y el filtro inferior modifica
+									el mapa MDA. <br />Abajo del periodo se
+									encuentran tres botones de reproducción
+									que sirven para cambiar automáticamente
+									los periodos y por ende los valores
+									reflejados en los mapas.
+								</li>
+								<img src="/img/visu/MTR&MDA_E_2.png" />
+								<li><b>Ejemplos de uso:</b></li>
+								<img src="/img/visu/MTR&MDA_E_3.png" />
+							</ul>
 						</div>
 						<div
 							class="option"
@@ -370,18 +452,49 @@
 
 				content.style.maxHeight = '0px';
 
+				const setAutoHeight = () => {
+					if (option.classList.contains('active')) {
+						content.style.maxHeight = 'none';
+					}
+				};
+
 				const toggleContent = () => {
 					const isOpen =
-						option.classList.toggle('active');
-					content.classList.toggle('show', isOpen);
-					content.style.maxHeight = isOpen
-						? `${content.scrollHeight}px`
-						: '0px';
+						!option.classList.contains('active');
+
+					if (isOpen) {
+						option.classList.add('active');
+						content.classList.add('show');
+						content.style.maxHeight = `${content.scrollHeight}px`;
+					} else {
+						if (content.style.maxHeight === 'none') {
+							content.style.maxHeight = `${content.scrollHeight}px`;
+							window.requestAnimationFrame(() => {
+								option.classList.remove('active');
+								content.classList.remove('show');
+								content.style.maxHeight = '0px';
+							});
+						} else {
+							option.classList.remove('active');
+							content.classList.remove('show');
+							content.style.maxHeight = '0px';
+						}
+					}
+
 					option.setAttribute(
 						'aria-expanded',
 						String(isOpen)
 					);
 				};
+
+				content.addEventListener(
+					'transitionend',
+					(event) => {
+						if (event.propertyName === 'max-height') {
+							setAutoHeight();
+						}
+					}
+				);
 
 				option.addEventListener('click', toggleContent);
 				option.addEventListener('keydown', (event) => {
@@ -405,7 +518,7 @@
 						content &&
 						content.classList.contains('option-content')
 					) {
-						content.style.maxHeight = `${content.scrollHeight}px`;
+						content.style.maxHeight = 'none';
 					}
 				});
 		});
