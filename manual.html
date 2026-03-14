@@ -133,7 +133,6 @@
 						</div>
 						<div class="option-content">
 							<img src="/img/Estructura_WEB.svg" />
-							<br />
 							<ol>
 								<li>
 									<b>Inicio:</b> Esta es la página
@@ -190,7 +189,8 @@
 							</p>
 						</div>
 						<div class="option-content">
-							<ul>
+							<h2>Nivel Estatal</h2>
+							<ul class="manual-sublist">
 								<li>
 									<b>Objetivo:</b> Comparar los precios
 									de la energía del MTR y MDA por mes en
@@ -225,19 +225,72 @@
 								<li>
 									<b>Instrucciones de uso:</b> En la
 									parte derecha del dashboard se
-									encuentran dos filtros que modifican el
-									periodo de observación dado por Mes y
-									Año; el filtro superior modifica el
-									mapa MTR y el filtro inferior modifica
-									el mapa MDA. <br />Abajo del periodo se
-									encuentran tres botones de reproducción
-									que sirven para cambiar automáticamente
-									los periodos y por ende los valores
-									reflejados en los mapas.
+									encuentra un filtro que modifica el
+									periodo de observación de ambos mapas,
+									este filtro está dado por Mes y Año.<br />
+									Abajo del periodo se encuentran tres
+									botones de reproducción que sirven para
+									cambiar automáticamente los periodos y
+									por ende los valores reflejados en los
+									mapas.
 								</li>
 								<img src="/img/visu/MTR&MDA_E_2.png" />
 								<li><b>Ejemplos de uso:</b></li>
 								<img src="/img/visu/MTR&MDA_E_3.png" />
+							</ul>
+							<br />
+							<h2>Nivel Zona de Carga</h2>
+							<ul class="manual-sublist">
+								<li>
+									<b>Objetivo:</b> Comparar los precios
+									de la energía del MTR y MDA por mes en
+									cada zona de carga de la República
+									Mexicana.
+								</li>
+								<li>
+									<b>Contexto de los datos:</b> Los datos
+									para estas visualizaciones fueron
+									obtenidos a través del CENACE (Centro
+									Nacional de Control de Energía)
+									publicados como el MDA (Mercado del Día
+									de Adelanto) y MTR (Mercado del Tiempo
+									Real), en estos se incluyen los tres
+									Sistemas Interconectados existentes en
+									México (SIN, BCA y BCS).
+								</li>
+								<li>
+									<b>Descripción de la visualización:</b>
+									Este dashboard cuenta con dos gráficos
+									de mapa representando la geometría de
+									México en la que se muestran las
+									ubicaciones de las zonas de carga
+									mediante círculos o burbujas , en el
+									lado izquierdo está el mapa que
+									representa por estado los precios de la
+									energía del MTR y del lado derecho el
+									mapa que representa los precios de
+									energía del MDA. El precio dado es por
+									MW/h, este es representado por colores
+									y por tamaño, entre más rojizo y grande
+									sea el círculo o burbuja indica un
+									precio más caro en esa zona de carga.
+								</li>
+								<img src="/img/visu/MTR&MDA_ZC_1.png" />
+								<li>
+									<b>Instrucciones de uso:</b> En la
+									parte derecha del dashboard se
+									encuentra un filtro que modifica el
+									periodo de observación de ambos mapas,
+									este filtro está dado por Mes y Año.<br />
+									Abajo del periodo se encuentran tres
+									botones de reproducción que sirven para
+									cambiar automáticamente los periodos y
+									por ende los valores reflejados en los
+									mapas.
+								</li>
+								<img src="/img/visu/MTR&MDA_ZC_2.png" />
+								<li><b>Ejemplos de uso:</b></li>
+								<img src="/img/visu/MTR&MDA_ZC_3.png" />
 							</ul>
 						</div>
 						<div
@@ -257,10 +310,65 @@
 							</p>
 						</div>
 						<div class="option-content">
-							<p>
-								Agrega aquí la información adicional de
-								esta sección.
-							</p>
+							<ul class="manual-sublist">
+								<li>
+									<b>Objetivo:</b> Comparar los precios
+									de la energía del MDA y MTR por hora en
+									cada zona de carga y estación de
+									generación de energía que participa en
+									ella categorizadas por entidad
+									federativa.
+								</li>
+								<li>
+									<b>Contexto de los datos:</b> Los datos
+									para estas visualizaciones fueron
+									obtenidos a través del CENACE (Centro
+									Nacional de Control de Energía)
+									publicados como el MDA (Mercado del Día
+									de Adelanto) y MTR (Mercado del Tiempo
+									Real), en estos se incluyen los tres
+									Sistemas Interconectados existentes en
+									México (SIN, BCA y BCS).
+								</li>
+								<li>
+									<b>Descripción de la visualización:</b>
+									Este dashboard cuenta con tres
+									gráficos, del lado izquierdo se observa
+									una serie temporal en donde demuestra
+									el cambio del costo de la energía por
+									MW en cada hora, tanto del MDA (línea
+									azul) y MTR (línea verde) haciendo una
+									comparación; en lado derecho se
+									encuentran dos gráficos de barras
+									horizontales, en la parte superior nos
+									indica la desviación relativa media por
+									zona de carga y el gráfico de abajo nos
+									indica también la desviación relativa
+									media pero de las estaciones de
+									generación de energía que participan en
+									dicha zona de carga, estas están
+									identificadas por colores indicando su
+									ubicación en una entidad federativa.
+								</li>
+								<img src="/img/visu/MTR&MDA_Tmp_1.png" />
+								<li>
+									<b>Instrucciones de uso:</b> En la
+									parte superior izquierda del dashboard
+									se encuentran dos filtros que modifican
+									el tiempo de visualización (mes y día),
+									a un lado también se encuentran otros
+									dos filtros que modifican la zona de
+									carga y la clave de identificación de
+									la estación de generación de energía;
+									estos dos últimos filtros mencionados
+									es más cómodo seleccionarlos mediante
+									los gráficos de barras horizontales.
+								</li>
+								<img src="/img/visu/MTR&MDA_Tmp_2.png" />
+								<img src="/img/visu/MTR&MDA_Tmp_3.png" />
+								<li><b>Ejemplos de uso:</b></li>
+								<img src="/img/visu/MTR&MDA_Tmp_4.png" />
+							</ul>
 						</div>
 						<div
 							class="option"
@@ -303,9 +411,41 @@
 						</div>
 						<div class="option-content">
 							<p>
-								Agrega aquí la información adicional de
-								esta sección.
+								Si lo que deseas es compartir una
+								visualización, Tableau Public ofrece 5
+								opciones distintas.
 							</p>
+							<ol>
+								<li>
+									<b>Código para insertar:</b> código
+									HTML que puede insertarse en cualquier
+									página web, tal como se implentó en
+									esta página.
+								</li>
+								<li>
+									<b>Enlace:</b> dirección URL de la
+									visualización en Tableau Public
+									(plataforma en la que se encuentran
+									publicadas cada una de las
+									visualizaciones).
+								</li>
+								<li>
+									<b>Correo:</b> automatiza el envío de
+									la dirección URL por correo
+									electrónico.
+								</li>
+								<li>
+									<b>X:</b> automatiza el envío de la
+									dirección URL que se representa como un
+									tweet en esta red social.
+								</li>
+								<li>
+									<b>Facebook:</b> automatiza el envío de
+									la dirección URL que se representa como
+									una publicación en esta red social.
+								</li>
+							</ol>
+							<img src="/img/visu/Copartir_vzs.png" />
 						</div>
 						<div
 							class="option"
@@ -319,13 +459,37 @@
 									alt="Left arrow"
 								/>
 							</div>
-							<p class="option-title">Descargar datos</p>
+							<p class="option-title">
+								Descargar visualizaciones
+							</p>
 						</div>
 						<div class="option-content">
 							<p>
-								Agrega aquí la información adicional de
-								esta sección.
+								Si lo que deseas es descargar las
+								visualizaciones para un análisis
+								posterior, se pueden descargar de las
+								siguientes tres maneras:
 							</p>
+							<ol>
+								<li>
+									<b>Imagen:</b> te permite descargar la
+									visualización tal cual se muestra en
+									pantalla como si de una captura de
+									pantalla se tratase en formato PNG.
+								</li>
+								<li>
+									<b>PDF:</b> similar al punto 1, te
+									permite descargar la visualización en
+									formato PDF, pero además, seleccionando
+									qué gráficas incluir y el formato de
+									hoja.
+								</li>
+								<li>
+									<b>PowerPoint:</b> similar a los puntos
+									1 y 4, pero en formato PPTX.
+								</li>
+							</ol>
+							<img src="/img/visu/Descargas_vzs.png" />
 						</div>
 					</div>
 				</section>
